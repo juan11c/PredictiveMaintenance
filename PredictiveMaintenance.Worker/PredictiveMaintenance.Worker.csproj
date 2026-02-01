@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-PredictiveMaintenance.Worker-5e0568ec-1918-4879-9918-56e7b9fe2ccd</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PredictiveMaintenance.Application\PredictiveMaintenance.Application.csproj" />
+    <ProjectReference Include="..\PredictiveMaintenance.Infrastructure\PredictiveMaintenance.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
