@@ -11,6 +11,7 @@ namespace PredictiveMaintenance.Infrastructure.Persistence
         public DbSet<Machine> Machines { get; set; }
         public DbSet<SensorData> SensorData { get; set; }
         public DbSet<MaintenanceAlert> MaintenanceAlerts { get; set; }
+        public DbSet<Sensor> Sensors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,10 +27,15 @@ namespace PredictiveMaintenance.Infrastructure.Persistence
             modelBuilder.Entity<SensorData>()
                 .HasKey(s => s.Id);
 
-            modelBuilder.Entity<SensorData>()
+            modelBuilder.Entity<Sensor>()
                 .HasOne<Machine>()
                 .WithMany()
                 .HasForeignKey(s => s.MachineId);
+
+            modelBuilder.Entity<SensorData>()
+                .HasOne<Sensor>()
+                .WithMany()
+                .HasForeignKey(s => s.SensorId);
 
             // Configuración de MaintenanceAlert
             modelBuilder.Entity<MaintenanceAlert>()

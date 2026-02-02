@@ -1,35 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace PredictiveMaintenance.Application.DTOs.SensorData
 {
+    /// <summary>
+    /// Representa la respuesta al consultar una lectura de un sensor.
+    /// Incluye información del sensor asociado y el valor registrado.
+    /// </summary>
     public class SensorDataResponseDto
     {
         /// <summary>
-        /// Id de relación con la maquina.
+        /// Identificador único de la lectura registrada.
         /// </summary>
-        public Guid MachineId { get; set; } // Relación con la máquina
+        public Guid Id { get; set; }
 
         /// <summary>
-        /// Campo que muestra la temperatura de la maquina.
+        /// Identificador único del sensor que generó la lectura.
+        /// Permite relacionar la lectura con un sensor específico de una máquina.
         /// </summary>
-        public double Temperature { get; set; }        // °C
+        public Guid SensorId { get; set; }
 
         /// <summary>
-        /// Campo que muestra la vibración de la maquina en Hz.
+        /// Valor medido por el sensor en la unidad correspondiente.
         /// </summary>
-        public double Vibration { get; set; }          // Hz
+        public double Value { get; set; }
 
         /// <summary>
-        /// Campo que muestra la energía usada por la maquina en kwh.
+        /// Momento exacto en que se tomó la lectura.
+        /// Este campo es crítico para trazabilidad y análisis histórico.
         /// </summary>
-        public double EnergyConsumption { get; set; }  // kWh
+        public DateTime Timestamp { get; set; }
+
+        // Información del sensor asociado
+        /// <summary>
+        /// Tipo de valor del sensor (grados, temperatura).
+        /// </summary>
+        public string Type { get; set; } = string.Empty;
 
         /// <summary>
-        /// Campo que muestra el momento de la lectura.
+        /// Unidad del tipo (30 C°).
         /// </summary>
-        public DateTime Timestamp { get; set; }        // Momento de la lectura
+        public string Unit { get; set; } = string.Empty;
+
     }
 }

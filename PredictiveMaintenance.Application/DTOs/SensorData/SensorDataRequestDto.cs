@@ -1,38 +1,32 @@
-﻿
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PredictiveMaintenance.Application.DTOs.SensorData
 {
     /// <summary>
-    /// Representa la solicitud para agregar un sensor de una maquina relacionada.
+    /// Representa la solicitud para registrar una lectura de un sensor específico de una máquina.
     /// </summary>
     public class SensorDataRequestDto
     {
         /// <summary>
-        /// Id de relación con la maquina.
+        /// Identificador único del sensor que genera la lectura.
+        /// Relaciona la lectura con un sensor previamente registrado en la máquina.
         /// </summary>
-        [Required(ErrorMessage = "La relación es obligatoria")]
-        public Guid MachineId { get; set; } // Relación con la máquina
+        [Required(ErrorMessage = "El sensor es obligatorio")]
+        public Guid SensorId { get; set; }
 
         /// <summary>
-        /// Campo que muestra la temperatura de la maquina.
+        /// Valor medido por el sensor en la unidad correspondiente.
+        /// Ejemplo: temperatura en °C, vibración en Hz, energía en kWh.
         /// </summary>
-        [Required(ErrorMessage = "La temperatura es obligatoria")]
-        public double Temperature { get; set; }        // °C
+        [Required(ErrorMessage = "El valor de la lectura es obligatorio")]
+        public double Value { get; set; }
 
         /// <summary>
-        /// Campo que muestra la vibración de la maquina en Hz.
+        /// Momento exacto en que se tomó la lectura.
+        /// Este campo es crítico para trazabilidad y análisis histórico.
         /// </summary>
-        public double Vibration { get; set; }          // Hz
-
-        /// <summary>
-        /// Campo que muestra la energía usada por la maquina en kwh.
-        /// </summary>
-        public double EnergyConsumption { get; set; }  // kWh
-
-        /// <summary>
-        /// Campo que muestra el momento de la lectura.
-        /// </summary>
-        public DateTime Timestamp { get; set; }        // Momento de la lectura
+        [Required(ErrorMessage = "El momento de la lectura es obligatorio")]
+        public DateTime Timestamp { get; set; }
     }
 }
