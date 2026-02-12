@@ -4,5 +4,6 @@
   <Project Path="PredictiveMaintenance.Domain/PredictiveMaintenance.Domain.csproj" />
   <Project Path="PredictiveMaintenance.Infrastructure/PredictiveMaintenance.Infrastructure.csproj" />
   <Project Path="PredictiveMaintenance.Simulator/PredictiveMaintenance.Simulator.csproj" />
+  <Project Path="PredictiveMaintenance.Tests/PredictiveMaintenance.Tests.csproj" />
   <Project Path="PredictiveMaintenance.Worker/PredictiveMaintenance.Worker.csproj" />
 </Solution>
